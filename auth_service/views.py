@@ -7,10 +7,10 @@ from rest_framework import status
 from rest_framework.permissions import AllowAny
 
 from service_lib.helper import AuthHelper
+from service_lib.auth_service.utils.auth import logout
 
 from .serializers import (
     LoginSerializers,
-    ProfileSerializer,
     RegisterSerializer,
     RegisterVerifyOtpSerializer
 )
@@ -27,13 +27,18 @@ class AccountViewSet(GenericViewSet):
     def get_serializer_class(self):
         if self.action == 'login':
             return LoginSerializers
-        elif self.action == 'profile':
-            return ProfileSerializer
         elif self.action == 'register':
             return RegisterSerializer
         elif self.action == 'register_otp':
             return RegisterVerifyOtpSerializer
         return super().get_serializer_class()
+
+    @action(methods=['GET'], detail=False)
+    def logout(self, request):
+        logout(request.auth)
+        response = Response()
+        response.delete_cookie('session')
+        return response
 
     @action(methods=['POST'], detail=False)
     def register_otp(self, request):
@@ -53,7 +58,6 @@ class AccountViewSet(GenericViewSet):
 
     @action(methods=['GET'], detail=False)
     def profile(self, request):
-        instance = request.user
         route = f'/internal/api/v1/account/{request.user.uuid}/profile'
         helper = AuthHelper(route=route)
         helper.get_json()

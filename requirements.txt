@@ -32,4 +32,4 @@ tomli==2.0.1
 traitlets==5.9.0
 urllib3==1.26.15
 wcwidth==0.2.6
-git+https://github.com/jeagercoder/service_lib.git
+git+https://github.com/jeagercoder/service_lib.git@v0.0.1

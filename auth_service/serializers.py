@@ -14,13 +14,6 @@ class LoginSerializers(serializers.Serializer):
         return helper.response_json, helper.status_code
 
 
-class ProfileSerializer(serializers.Serializer):
-
-    def to_representation(self, instance):
-        helper = AuthHelper()
-        return {}
-
-
 class RegisterSerializer(serializers.Serializer):
     first_name = serializers.CharField()
     last_name = serializers.CharField()
@@ -36,7 +29,6 @@ class RegisterSerializer(serializers.Serializer):
 
 
 class RegisterVerifyOtpSerializer(serializers.Serializer):
-    email = serializers.EmailField()
     otp_code = serializers.CharField(max_length=6, min_length=6)
     otp_token = serializers.CharField(max_length=32, min_length=32)
 
