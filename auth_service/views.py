@@ -79,6 +79,8 @@ class AccountViewSet(GenericViewSet):
                     domain=settings.HOST_NAME
                 )
                 return response
+            else:
+                return Response(data, status=status_code)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
