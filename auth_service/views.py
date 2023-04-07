@@ -73,9 +73,9 @@ class AccountViewSet(GenericViewSet):
                 response.set_cookie(
                     key='session',
                     value=data.get('session'),
-                    secure=True,
-                    httponly=True,
-                    samesite='Strict',
+                    secure=settings.SECURE,
+                    httponly=settings.HTTPONLY,
+                    samesite=settings.SAMESITE,
                     domain=settings.HOST_NAME
                 )
                 return response
