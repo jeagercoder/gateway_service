@@ -37,7 +37,9 @@ class AccountViewSet(GenericViewSet):
     def logout(self, request):
         logout(request.auth)
         response = Response()
-        response.delete_cookie('session')
+        response.delete_cookie(key='session',
+                               domain=settings.HOST_NAME,
+                               samesite=settings.SAMESITE)
         return response
 
     @action(methods=['POST'], detail=False)
