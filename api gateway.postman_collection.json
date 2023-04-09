@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "47b91833-37a6-4382-8db6-15142022ec92",
+		"name": "api gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22478219"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"\",\n    \"password\":\"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.dev.indothon.com/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"api",
+						"dev",
+						"indothon",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.dev.indothon.com/api/v1/auth/logout",
+					"protocol": "http",
+					"host": [
+						"api",
+						"dev",
+						"indothon",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "session=idwIwNYStaWiVnqboErrrveCudisEgnrKMyXoxchBgQetdvFJULohCWCdoVabTsb; Domain=.indothon.com; HttpOnly; Path=/; SameSite=Strict; Secure",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.dev.indothon.com/api/v1/auth/profile",
+					"protocol": "http",
+					"host": [
+						"api",
+						"dev",
+						"indothon",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"\",\n    \"password\":\"\",\n    \"first_name\":\"\",\n    \"last_name\":\"\",\n    \"username\":\"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.dev.indothon.com/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"api",
+						"dev",
+						"indothon",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register otp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"otp_code\":\"\",\n    \"otp_token\":\"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.dev.indothon.com/api/v1/auth/register_otp",
+					"protocol": "http",
+					"host": [
+						"api",
+						"dev",
+						"indothon",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register_otp"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
