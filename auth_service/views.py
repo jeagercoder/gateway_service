@@ -42,22 +42,22 @@ class AccountViewSet(ServiceViewSet):
                                samesite=settings.SAMESITE)
 
     @action(methods=['POST'], detail=False)
-    def register_otp(self):
+    def register_otp(self, request):
         service = self.get_service()
         return service.post_json()
 
     @action(methods=['POST'], detail=False)
-    def register(self):
+    def register(self, request):
         service = self.get_service()
         return service.post_json()
 
     @action(methods=['GET'], detail=False)
-    def profile(self):
+    def profile(self, request):
         service = self.get_service()
         return service.get_json()
 
     @action(methods=['POST'], detail=False)
-    def login(self):
+    def login(self, request):
         service = self.get_service()
         resp = service.post_json()
         if resp.status_code == 200:
