@@ -40,6 +40,7 @@ class AccountViewSet(ServiceViewSet):
         response.delete_cookie(key='session',
                                domain=settings.HOST_NAME,
                                samesite=settings.SAMESITE)
+        return response
 
     @action(methods=['POST'], detail=False)
     def register_otp(self, request):
